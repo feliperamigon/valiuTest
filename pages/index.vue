@@ -1,23 +1,20 @@
 <template>
   <div class="container">
     <h1>Test author: Felipe Ramirez</h1>
-    <br>
+    <br />
     <h2>Role: Web UI Developer</h2>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  components: {  }
-})
+<script>
+export default {
+  head() {
+    return {
+      title: "Valiu Test - Felipe Ramirez"
+    };
+  }
+};
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+<style scoped>
 </style>
