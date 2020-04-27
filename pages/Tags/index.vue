@@ -6,6 +6,7 @@
 
 <script>
 import TagsTable from '../../components/TagsTable';
+
 export default {
   components: {
     TagsTable

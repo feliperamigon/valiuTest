@@ -43,6 +43,12 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
   ],
+  /**
+   * Nuxt.js Plugins
+   */
+  plugins: [
+    { src: '~/plugins/socket.client.js' }
+  ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

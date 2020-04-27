@@ -2,7 +2,7 @@
   <div class="container">
     <h3 class="title">Etiquetas</h3>
     <div class="group">
-      <input class="add-tag-input" type="text" placeholder="Añadir Etiqueta" />
+      <input class="add-tag-input" type="text" placeholder="Añadir Etiqueta" @keyup.enter="createTag($event)"/>
     </div>
 
     <table class="tags-table">
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import mapMutations from 'vuex';
+
 export default {
   name: "TagsTable",
   data() {
@@ -46,6 +48,13 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    createTag($event) {
+      this.$socket.emit('createTag', $event.target.value, (response) => {
+        console.log(response);
+      });
+    }
   }
 };
 </script>
