@@ -1,11 +1,12 @@
 <template>
   <div>
-    <TagsTable></TagsTable>
+    <TagsTable :tags="tags"></TagsTable>
   </div>
 </template>
 
 <script>
 import TagsTable from '../../components/TagsTable';
+import { mapState, mapMutations } from "vuex";
 
 export default {
   components: {
@@ -15,6 +16,16 @@ export default {
     return {
       title: "Tags Manager"
     };
+  },
+  data () {
+    return {
+      tags: []
+    }
+  },
+  sockets: {
+    updateTags(tags) {
+      this.updateTags(tags);
+    }
   }
 };
 </script>

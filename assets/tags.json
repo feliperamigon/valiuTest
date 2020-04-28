@@ -1,0 +1,29 @@
+{
+    "tags": [
+        {
+            "id": 0,
+            "color": "blue",
+            "name": "Balance"
+        },
+        {
+            "id": 1,
+            "color": "white",
+            "name": "Completada"
+        },
+        {
+            "id": 2,
+            "color": "red",
+            "name": "Cancelada"
+        },
+        {
+            "id": 3,
+            "color": "green",
+            "name": "Local"
+        },
+        {
+            "id": 4,
+            "color": "pink",
+            "name": "Pagado"
+        }
+    ]
+}

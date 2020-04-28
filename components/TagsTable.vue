@@ -2,7 +2,7 @@
   <div class="container">
     <h3 class="title">Etiquetas</h3>
     <div class="group">
-      <input class="add-tag-input" type="text" placeholder="Añadir Etiqueta" @keyup.enter="createTag($event)"/>
+      <input class="add-tag-input" v-model="text" type="text" placeholder="Añadir Etiqueta" @keyup.enter="createTag($event)"/>
     </div>
 
     <table class="tags-table">
@@ -18,6 +18,7 @@
           <button>Eliminar</button>
         </td>
       </tr>
+      <tr v-if="tags.length <= 0">No hay tags actualmente, agrega uno!</tr>
     </table>
   </div>
 </template>
@@ -27,32 +28,20 @@ import mapMutations from 'vuex';
 
 export default {
   name: "TagsTable",
+  props: {
+    tags: Array
+  },
   data() {
     return {
       title: "Etiquetas",
-      tags: [
-        {
-          id: 0,
-          name: "Balance",
-          color: "blue"
-        },
-        {
-          id: 1,
-          name: "Completada",
-          color: "green"
-        },
-        {
-          id: 2,
-          name: "Cancelada",
-          color: "red"
-        }
-      ]
+      text: ""
     };
   },
   methods: {
     createTag($event) {
-      this.$socket.emit('createTag', $event.target.value, (response) => {
-        console.log(response);
+      this.$socket.emit('createTag', $event.target.value, (data) => {
+        this.text = "";
+        this.$store.commit('newTag', data);
       });
     }
   }
